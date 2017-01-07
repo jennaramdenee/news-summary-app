@@ -6,6 +6,7 @@
   }
 
   ArticleList.prototype.addArticle = function(article){
+    var id = this.generateArticleId();
     this.articles.push(new Article(article, id))
   }
 

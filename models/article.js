@@ -1,7 +1,8 @@
 (function(exports){
 
-  var Article = function(title){
+  var Article = function(title, id){
     this.title = title
+    this.id = id
   }
 
   Article.prototype.generateArticleHTML = function(){
@@ -11,8 +12,7 @@
 
   Article.prototype.getInfoFromUrl = function(){
     news.httpGetAsync(function(data){
-      console.log(data)
-      // this.title = data.response.content.webTitle
+      this.title = data.response.content.webTitle
     })
   }
 

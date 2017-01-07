@@ -1,6 +1,11 @@
 function testArticleHasTitle(){
-  var testArticle = new Article("Test");
+  var testArticle = new Article("Test", 1);
   assert.isTrue(testArticle.hasOwnProperty("title"))
+}
+
+function testArticleHasId(){
+  var testArticle = new Article("Another", 2);
+  assert.isTrue(testArticle.hasOwnProperty("id"))
 }
 
 function testGenerateArticleHTML(){
@@ -14,5 +19,6 @@ function testGetInfoFromUrl(){
 }
 
 testArticleHasTitle();
+testArticleHasId();
 testGenerateArticleHTML();
 // testGetInfoFromUrl();
