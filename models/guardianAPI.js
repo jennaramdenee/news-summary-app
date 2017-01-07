@@ -1,7 +1,5 @@
 (function(exports){
 
-  var Guardian = function(){}
-
   function findTodayDate(){
     var date = new Date()
     var year = date.getFullYear().toString()
@@ -16,8 +14,19 @@
     return makersUrl + apiRequestUrl
   }
 
-  exports.Guardian = Guardian
-  exports.findTodayDate = findTodayDate
-  exports.generateListUrl = generateListUrl
+  function httpGetAsyncList(callback){
+    var xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function(){
+      if (xhr.readyState === 4 && xhr.status === 200){
+        callback(xhr.responseText)
+      }
+    }
+    xhr.open("GET", generateListUrl(findTodayDate()), true)
+    xhr.send();
+  }
+
+  exports.news {
+    httpGetAsyncList: httpGetAsyncList
+  }
 
 })(this);

@@ -1,6 +1,4 @@
-function testFindTodayDate(){
-  function Date(){}
-  assert.isTrue(findTodayDate() === "2017-01-06")
+function testGenerateListUrl(){
+  var news = new News()
+  assert.isTrue(news.generateListUrl("2017-01-01").includes("2017-01-01"))
 }
-
-// testFindTodayDate();
