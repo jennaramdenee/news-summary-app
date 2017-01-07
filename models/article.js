@@ -1,20 +1,22 @@
 (function(exports){
 
-  var Article = function(){
-    this.news = new News();
+  var Article = function(title){
+    this.title = title
   }
 
-  Article.prototype.getInfoFromUrl = function(callback){
-    httpGetAsyncList(function callback(err, data){
-      if (err) { throw new Error }
-      else {
-        callback(data)
-      }
+  Article.prototype.generateArticleHTML = function(){
+    return "<div id='desc'><title>" + this.title
+      + "</title></div>"
+  }
+
+  Article.prototype.getInfoFromUrl = function(){
+    news.httpGetAsync(function(data){
+      console.log(data)
+      // this.title = data.response.content.webTitle
     })
   }
 
-  this.title = data2.response.content.webTitle
-  this.apiUrl = data2.response.results.apiUrl
+
 
   exports.Article = Article;
 
