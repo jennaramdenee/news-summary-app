@@ -14,6 +14,12 @@
     return makersUrl + apiRequestUrl
   }
 
+  function generatePageUrl(article){
+    var makersUrl = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl="
+    // var apiRequestUrl = article.apiUrl //once I figure out how to actually get the data..
+    return makersUrl + apiRequestUrl
+  }
+
   function httpGetAsync(callback){
     var xhr = new XMLHttpRequest()
     xhr.onreadystatechange = function(){
