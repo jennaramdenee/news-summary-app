@@ -1,12 +1,14 @@
-function testArticleHasTitle(){
-  var testArticle = new Article("Test Article");
+function testArticleHasNewsObject(){
+  var testArticle = new Article();
+  assert.isTrue(testArticle.hasOwnProperty("news"))
+}
+
+function testArticleGetInfoFromUrl(){
+  var testArticle = new Article();
+  testArticle.getInfoFromUrl();
+
   assert.isTrue(testArticle.hasOwnProperty("title"))
 }
 
-function testArticleHasContent(){
-  var testArticle = new Article("Test Article");
-  assert.isTrue(testArticle.hasOwnProperty("content"))
-}
-
-testArticleHasTitle();
-testArticleHasContent();
+testArticleHasNewsObject();
+testArticleGetInfoFromUrl();
