@@ -9,12 +9,12 @@
   }
 
   function generateListUrl(date){
-    var makersUrl = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl"
+    var makersUrl = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl="
     var apiRequestUrl = "http://content.guardianapis.com/search?from-date=" + date
     return makersUrl + apiRequestUrl
   }
 
-  function httpGetAsyncList(callback){
+  function httpGetAsync(callback){
     var xhr = new XMLHttpRequest()
     xhr.onreadystatechange = function(){
       if (xhr.readyState === 4 && xhr.status === 200){
@@ -25,8 +25,8 @@
     xhr.send();
   }
 
-  exports.news {
-    httpGetAsyncList: httpGetAsyncList
+  exports.news = {
+    httpGetAsync: httpGetAsync
   }
 
 })(this);
