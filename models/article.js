@@ -1,8 +1,9 @@
 (function(exports){
 
-  var Article = function(title, apiUrl, id){
+  var Article = function(title, apiUrl, image, id){
     this.title = title
     this.apiUrl = apiUrl
+    this.image = image
     this.id = id
   }
 
