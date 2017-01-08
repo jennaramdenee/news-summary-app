@@ -1,6 +1,6 @@
-function testArticleHasAPIURL(){
+function testArticleHasBody(){
   var testArticle = new Article();
-  assert.isTrue(testArticle.hasOwnProperty("apiUrl"))
+  assert.isTrue(testArticle.hasOwnProperty("body"))
 }
 
 function testArticleHasId(){
@@ -24,7 +24,7 @@ function testGenerateArticleHTML(){
 }
 
 
-testArticleHasAPIURL();
+testArticleHasBody();
 testArticleHasId();
 testArticleHasTitle();
 testArticleHasImage();

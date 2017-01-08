@@ -7,10 +7,10 @@
 
   ArticleList.prototype.addArticle = function(article){
     var id = this.generateArticleId();
-    var title = article.webTitle
-    var apiUrl = article.apiUrl
-    var image = article.apiUrl.main
-    this.articles.push(new Article(title, apiUrl, image, id))
+    var title = article.response.content.webTitle
+    var body = article.respoonse.content.fields.body
+    var image = article.response.content.fields.main
+    this.articles.push(new Article(title, body, image, id))
   }
 
   ArticleList.prototype.generateArticleId = function(){
