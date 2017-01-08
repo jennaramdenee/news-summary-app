@@ -7,7 +7,10 @@
 
   ArticleList.prototype.addArticle = function(article){
     var id = this.generateArticleId();
-    this.articles.push(new Article(article, id))
+    var title = article.webTitle
+    var apiUrl = article.apiUrl
+    var image = article.apiUrl.main
+    this.articles.push(new Article(title, apiUrl, image, id))
   }
 
   ArticleList.prototype.generateArticleId = function(){
@@ -22,6 +25,7 @@
     })
     return output
   }
+
 
   exports.ArticleList = ArticleList
 
