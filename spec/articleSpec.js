@@ -1,24 +1,25 @@
-function testArticleHasTitle(){
-  var testArticle = new Article("Test", 1);
-  assert.isTrue(testArticle.hasOwnProperty("title"))
+function testArticleHasAPIURL(){
+  var testArticle = new Article();
+  assert.isTrue(testArticle.hasOwnProperty("apiUrl"))
 }
 
 function testArticleHasId(){
-  var testArticle = new Article("Another", 2);
+  var testArticle = new Article();
   assert.isTrue(testArticle.hasOwnProperty("id"))
 }
 
+function testArticleHasTitle(){
+  var testArticle = new Article("Another", 2);
+  assert.isTrue(testArticle.hasOwnProperty("title"))
+}
+
 function testGenerateArticleHTML(){
-  var testArticle = new Article("Test");
+  var testArticle = new Article("Test", "TestAPI", 1);
   assert.isTrue(testArticle.generateArticleHTML() === "<div id='desc'><title>Test</title></div>")
 }
 
-function testGetInfoFromUrl(){
-  var testArticle = new Article()
-  testArticle.getInfoFromUrl();
-}
 
-testArticleHasTitle();
+testArticleHasAPIURL();
 testArticleHasId();
+testArticleHasTitle();
 testGenerateArticleHTML();
-// testGetInfoFromUrl();

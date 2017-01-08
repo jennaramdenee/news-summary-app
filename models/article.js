@@ -1,7 +1,8 @@
 (function(exports){
 
-  var Article = function(title, id){
+  var Article = function(title, apiUrl, id){
     this.title = title
+    this.apiUrl = apiUrl
     this.id = id
   }
 
@@ -10,15 +11,6 @@
       + "</title></div>"
   }
 
-  Article.prototype.getInfoFromUrl = function(){
-    news.httpGetAsync(function(data){
-      this.title = data.response.content.webTitle
-    })
-  }
-
-
-
   exports.Article = Article;
-
 
 })(this);
