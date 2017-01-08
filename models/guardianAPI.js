@@ -33,23 +33,22 @@
 
   function httpGetArticle(articleUrl){
     httpGetAsync(generateArticleUrl(articleUrl), function(data){
-      //update body of the article
+      var articleList = new ArticleList()
+      articleList.addArticle(JSON.parse(data))
     })
   }
 
   function httpGetArticleList(){
     httpGetAsync(generateListUrl(findTodayDate()), function(data){
-      var articleList = new ArticleList()
       var list = JSON.parse(data)
       list.response.results.forEach(function(result){
-        articleList.addArticle(result)
+        httpGetArticle(result.apiUrl)
       })
     })
   }
 
 
   exports.news = {
-    httpGetArticle: httpGetArticle,
     httpGetArticleList: httpGetArticleList
   }
 
