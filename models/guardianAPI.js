@@ -14,10 +14,10 @@
     return makersUrl + apiRequestUrl
   }
 
-  function generateArticleUrl(article){
+  function generateArticleUrl(articleUrl){
     var makersUrl = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl="
-    // var apiRequestUrl = article.apiUrl //once I figure out how to actually get the data..
-    return makersUrl + apiRequestUrl
+    var apiRequestUrl = articleUrl
+    return makersUrl + apiRequestUrl + "?show-fields=all"
   }
 
   function httpGetAsync(url, callback){
@@ -31,8 +31,26 @@
     xhr.send();
   }
 
+  function httpGetArticle(articleUrl){
+    httpGetAsync(generateArticleUrl(articleUrl), function(data){
+      //update body of the article
+    })
+  }
+
+  function httpGetArticleList(){
+    httpGetAsync(generateListUrl(findTodayDate()), function(data){
+      var articleList = new ArticleList()
+      var list = JSON.parse(data)
+      list.response.results.forEach(function(result){
+        articleList.addArticle(result)
+      })
+    })
+  }
+
+
   exports.news = {
-    httpGetAsync: httpGetAsync
+    httpGetArticle: httpGetArticle,
+    httpGetArticleList: httpGetArticleList
   }
 
 })(this);
