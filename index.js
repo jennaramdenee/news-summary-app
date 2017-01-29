@@ -1,4 +1,7 @@
-var controller = new ArticleController();
+var articleController = new ArticleController();
 
-news.httpGetArticleList();
-controller.initialLoad();
+news.httpGetArticleList(articleController);
+
+window.addEventListener("hashchange", function(){
+  articleController.showArticle();
+})
