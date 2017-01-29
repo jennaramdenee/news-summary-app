@@ -5,7 +5,7 @@
   }
 
   ArticleView.prototype.updateArticleHTML = function(){
-    document.getElementById("summary").innerHTML = this.articleModel.generateArticleHTML()
+    document.getElementById("app").innerHTML = this.articleModel.generateArticleHTML()
   }
 
   exports.ArticleView = ArticleView
