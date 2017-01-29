@@ -19,9 +19,9 @@
   }
 
   ArticleList.prototype.generateListHTML = function(){
-    var output = "<div class='row'>"
+    var output = "<div class='pure-g'>"
     this.articles.forEach(function(article){
-      output += "<div class='col-md-6'><div class='image'><img src='" + article.image + "'></div><div class='summary'><a href='#article/" + article.id + "'>" + article.title + "</a></div></div>"
+      output += "<div class='pure-u-1-2'><div class='image'><img src='" + article.image + "'></div><div class='summary'><a href='#article/" + article.id + "'>" + article.title + "</a></div></div>"
     })
     output += "</div>"
     return output

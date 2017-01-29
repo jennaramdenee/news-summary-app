@@ -16,7 +16,13 @@ function testGenerateArticleId(){
 
 function testAddNewArticleToList(){
   var testArticleList = new ArticleList()
-  function testArticleDouble(){}
+  function testArticleDouble(){
+    this.webTitle = "title"
+    this.fields = {
+      bodyText: "text",
+      thumbnail: "image"
+    }
+  }
   var testArticleDouble = new testArticleDouble()
   testArticleList.addArticle(testArticleDouble)
   assert.isTrue(testArticleList.articles.length === 1)
@@ -24,13 +30,20 @@ function testAddNewArticleToList(){
 
 function testGenerateListHTML(){
   var testArticleList = new ArticleList()
-  testArticleList.addArticle("Test2")
-  testArticleList.addArticle("Test3")
-  assert.isTrue(testArticleList.generateListHTML() === "<div><title><a href='#article/1'>Test2</a></title></div><div><title><a href='#article/2'>Test3</a></title></div>")
+  function testArticleDouble(){
+    this.webTitle = "title"
+    this.fields = {
+      bodyText: "text",
+      thumbnail: "image"
+    }
+  }
+  var testArticleDouble = new testArticleDouble()
+  testArticleList.addArticle(testArticleDouble)
+  assert.isTrue(testArticleList.generateListHTML() === "<div class='pure-g'><div class='pure-u-1-2'><div class='image'><img src='image'></div><div class='summary'><a href='#article/1'>title</a></div></div></div>")
 }
 
 testArticleListHasArticles();
 testArticleListHasCounter();
 testGenerateArticleId();
-// testAddNewArticleToList();
-// testGenerateListHTML();
+testAddNewArticleToList();
+testGenerateListHTML();
