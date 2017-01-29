@@ -3,22 +3,33 @@
 <html>
 <head>
   <title>News Summary Web App Test</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/stylesheet.css" rel="stylesheet">
 </head>
 
 <body>
-  <div id="image">Placeholder for image</div>
-  <div id="summary">Placeholder for content</div>
+  <div id="app">Placeholder for image</div>
 
   <script src="assert.js"></script>
   <!-- Models -->
   <script src="models/article.js"></script>
   <script src="models/articleList.js"></script>
   <script src="models/guardianAPI.js"></script>
-  <!-- Tests -->
-  <script src="spec/articleSpec.js"></script>
-  <script src="spec/articleListSpec.js"></script>
-  <script src="spec/guardianAPISpec.js"></script>
-
+  <!-- Views -->
+  <script src="views/articleListView.js"></script>
+  <script src="views/articleView.js"></script>
+  <!-- Controllers -->
+  <script src="controllers/articleController.js"></script>
+  <!-- SetUp -->
+  <script src="index.js"></script>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
 
 </body>
 </html>
