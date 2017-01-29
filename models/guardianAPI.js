@@ -1,23 +1,9 @@
 (function(exports){
 
-  function findTodayDate(){
-    var date = new Date()
-    var year = date.getFullYear().toString()
-    var month = (date.getMonth()+1).toString()
-    var day = (date.getDay()+1).toString()
-    return year + "-" + ("0"+month).slice(-2) + "-" + ("0"+day).slice(-2)
-  }
-
-  function generateListUrl(date){
+  function generateListUrl(){
     var makersUrl = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl="
-    var apiRequestUrl = "http://content.guardianapis.com/search?from-date=" + date
+    var apiRequestUrl = "http://content.guardianapis.com/search?show-fields=all"
     return makersUrl + apiRequestUrl
-  }
-
-  function generateArticleUrl(articleUrl){
-    var makersUrl = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl="
-    var apiRequestUrl = articleUrl
-    return makersUrl + apiRequestUrl + "?show-fields=all"
   }
 
   function httpGetAsync(url, callback){
@@ -31,22 +17,12 @@
     xhr.send();
   }
 
-  function httpGetArticle(articleUrl){
-    httpGetAsync(generateArticleUrl(articleUrl), function(data){
-      var articleList = new ArticleList()
-      articleList.addArticle(JSON.parse(data))
+  function httpGetArticleList(controller){
+    httpGetAsync(generateListUrl(), function(data){
+      var list = data.response.results
+      controller.initialLoad(list);
     })
   }
-
-  function httpGetArticleList(){
-    httpGetAsync(generateListUrl(findTodayDate()), function(data){
-      var list = JSON.parse(data)
-      list.response.results.forEach(function(result){
-        httpGetArticle(result.apiUrl)
-      })
-    })
-  }
-
 
   exports.news = {
     httpGetArticleList: httpGetArticleList
