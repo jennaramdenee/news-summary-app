@@ -7,9 +7,9 @@
 
   ArticleList.prototype.addArticle = function(article){
     var id = this.generateArticleId();
-    var title = article.response.content.webTitle
-    var body = article.respoonse.content.fields.body
-    var image = article.response.content.fields.main
+    var title = article.webTitle
+    var body = article.fields.bodyText
+    var image = article.fields.thumbnail
     this.articles.push(new Article(title, body, image, id))
   }
 
@@ -19,10 +19,11 @@
   }
 
   ArticleList.prototype.generateListHTML = function(){
-    var output = ""
+    var output = "<div class='row'>"
     this.articles.forEach(function(article){
-      output += "<div><title><a href='#article/" + article.id + "'>" + article.title + "</a></title></div>"
+      output += "<div class='col-md-6'><div class='image'><img src='" + article.image + "'></div><div class='summary'><a href='#article/" + article.id + "'>" + article.title + "</a></div></div>"
     })
+    output += "</div>"
     return output
   }
 
