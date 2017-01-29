@@ -19,8 +19,8 @@ function testArticleHasImage(){
 }
 
 function testGenerateArticleHTML(){
-  var testArticle = new Article("Test", "TestAPI", 1);
-  assert.isTrue(testArticle.generateArticleHTML() === "<div id='desc'><title>Test</title></div>")
+  var testArticle = new Article("Test Title", "Test Body", "Test Image");
+  assert.isTrue(testArticle.generateArticleHTML() === "<div class='image'><img src='Test Image'></div><div class='desc'>Test Title</div><div class='content'>Test Body</div>")
 }
 
 
