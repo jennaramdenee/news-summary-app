@@ -1,6 +1,6 @@
 function testArticleListViewHasModel(){
   var testArticleListView = new ArticleListView()
-  assert.isTrue(testArticleListView.hasOwnProperty("articleListModel"))
+  assert.isTrue(testArticleListView.hasOwnProperty("articleList"))
 }
 
 function testUpdateArticleListView(){
@@ -12,7 +12,7 @@ function testUpdateArticleListView(){
   var testArticleListView = new ArticleListView(testArticleListDouble)
   testArticleListView.updateArticleListHTML()
 
-  assert.isTrue(document.getElementById("summary").innerHTML.includes("Test2"))
+  assert.isTrue(document.getElementById("app").innerHTML.includes("Test2"))
 }
 
 testArticleListViewHasModel()

@@ -1,11 +1,11 @@
 (function(exports){
 
-  var ArticleListView = function(articleListModel){
-    this.articleListModel = articleListModel
+  var ArticleListView = function(articleList){
+    this.articleList = articleList
   }
 
   ArticleListView.prototype.updateArticleListHTML = function(){
-    document.getElementById("summary").innerHTML = this.articleListModel.generateListHTML()
+    document.getElementById("app").innerHTML = this.articleList.generateListHTML()
   }
 
   exports.ArticleListView = ArticleListView
