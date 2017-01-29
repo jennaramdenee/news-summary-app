@@ -1,0 +1,27 @@
+body {
+  font-family: Verdana;
+  font-size: 15px;
+  margin: auto;
+}
+
+.image {
+  padding: 10px;
+}
+
+.summary {
+  padding: 10px;
+  max-width: 500px;
+}
+
+.desc {
+  padding: 10px;
+  font-weight: bold;
+  max-width: 500px;
+}
+
+.content {
+  padding: 10px;
+  font-size: 12px;
+  text-align: justify;
+  max-width: 500px;
+}
